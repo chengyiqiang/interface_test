@@ -1,4 +1,4 @@
-package getexcel;
+ï»¿package getexcel;
 
 import java.io.File;
 
@@ -12,7 +12,7 @@ import jxl.write.WritableWorkbook;
 
 
 public class GetTestExcel {
-	//»ñÈ¡ÒÑÓĞµÄ²âÊÔÓÃÀı
+	//è·å–å·²æœ‰çš„æµ‹è¯•ç”¨ä¾‹
 	public static Workbook wb = null;
 	public static WritableWorkbook wwb = null;
 	public static Sheet sheet = null;
@@ -24,20 +24,20 @@ public class GetTestExcel {
 			wb = Workbook.getWorkbook(new File(AppData.testCasePath ));
 			wwb = Workbook.createWorkbook(new File(AppData.testCasePath.split(".xls")[0] + "_result.xls"), wb);
 		} catch (Exception e) {
-			System.out.println("»ñÈ¡²âÊÔÓÃÀıExcel´íÎó£¡");
+			System.out.println("è·å–æµ‹è¯•ç”¨ä¾‹Excelé”™è¯¯ï¼");
 			e.printStackTrace();
 		}
 	}
 	
-	//»ñÈ¡¿ÉĞ´²âÊÔsheet
+	//è·å–å¯å†™æµ‹è¯•sheet
 	public static void getWritableSheet (int sheetNum){
 		wSheet = wwb.getSheet(sheetNum);
 	}
 	
-	//»ñÈ¡¿É¶Á²âÊÔsheet
+	//è·å–å¯è¯»æµ‹è¯•sheet
 	public static void getSheet (int sheetNum){
 		sheet = wb.getSheet(sheetNum);
-		//Ã¿´Î»ñÈ¡sheet£¬¶¼½«rowÖµÖØÖÃÎª1£¨µÚ¶şĞĞ£©
+		//æ¯æ¬¡è·å–sheetï¼Œéƒ½å°†rowå€¼é‡ç½®ä¸º1ï¼ˆç¬¬äºŒè¡Œï¼‰
 		row = 1;
 	}
 

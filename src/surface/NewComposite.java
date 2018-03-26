@@ -1,4 +1,4 @@
-package surface;
+锘縫ackage surface;
 
 import java.awt.Dialog;
 
@@ -169,24 +169,21 @@ public class NewComposite extends org.eclipse.swt.widgets.Composite {
 	private void setsucessWidgetSelected(SelectionEvent evt) {
 		System.out.println("setsucess.widgetSelected, event="+evt);
 		if("".equals(DBURLtext.getText()) || "".equals(DBusernametext.getText()) || "".equals(DBpasswordtext.getText()) || "".equals(testCaseUrlText.getText())){
-			msg.setText("请完成设置先~~");
+			msg.setText("璇峰畬鎴愯缃厛~~");
 		}else {
 			AppData.DBPath = DBURLtext.getText();
 			AppData.DBUserName = DBusernametext.getText();
 			AppData.DBPassWord = DBpasswordtext.getText();
 			AppData.testCasePath = testCaseUrlText.getText();
-			msg.setText("设置成功");
-		}
-		
-		
-		
+			msg.setText("璁剧疆鎴愬姛");
+		}		
 	}
 	
 	private void startCaseWidgetSelected(SelectionEvent evt) {
 		System.out.println("startCase.widgetSelected, event="+evt);
 		//TODO add your code for startCase.widgetSelected
 		if("".equals(AppData.DBPath) || "".equals(AppData.DBUserName) || "".equals(AppData.DBPassWord) || "".equals(AppData.testCasePath)){
-			msg.setText("请完成设置先~~");
+			msg.setText("璇峰畬鎴愯缃厛~~");
 		}else {
 			msg.setText("");
 			DoTest.doTest();

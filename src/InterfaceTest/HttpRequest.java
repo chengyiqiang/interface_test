@@ -1,4 +1,4 @@
-package InterfaceTest;
+ï»¿package InterfaceTest;
 
 import getexcel.ReadExcel;
 
@@ -19,45 +19,45 @@ import java.util.Map;
 
 
 public class HttpRequest {
-	//postÇëÇóµÄ·¢ËÍ
+	//postè¯·æ±‚çš„å‘é€
    public static String sendPost(String path,String request){
         String response = null;
         try {
-        	// ´´½¨url×ÊÔ´
+        	// åˆ›å»ºurlèµ„æº
             URL url = new URL(path);
-            // ½¨Á¢httpÁ¬½Ó
+            // å»ºç«‹httpè¿æ¥
             HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
-            // conn.setConnectTimeout(10000);//Á¬½Ó³¬Ê± µ¥Î»ºÁÃë
-            // conn.setReadTimeout(2000);//¶ÁÈ¡³¬Ê± µ¥Î»ºÁÃë
-            // ·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ // ÉèÖÃÔÊĞíÊä³öÊäÈë
+            // conn.setConnectTimeout(10000);//è¿æ¥è¶…æ—¶ å•ä½æ¯«ç§’
+            // conn.setReadTimeout(2000);//è¯»å–è¶…æ—¶ å•ä½æ¯«ç§’
+            // å‘é€POSTè¯·æ±‚å¿…é¡»è®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ // è®¾ç½®å…è®¸è¾“å‡ºè¾“å…¥
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);         
-            httpURLConnection.setConnectTimeout(50000); //ÉèÖÃÁ¬½Ó³¬Ê± 
-            httpURLConnection.setReadTimeout(50000);//ÉèÖÃ¶ÁÈ¡³¬Ê± 
-            //ÉèÖÃ¶ÔÓ¦µÄÇëÇó·½Ê½
+            httpURLConnection.setConnectTimeout(50000); //è®¾ç½®è¿æ¥è¶…æ—¶ 
+            httpURLConnection.setReadTimeout(50000);//è®¾ç½®è¯»å–è¶…æ—¶ 
+            //è®¾ç½®å¯¹åº”çš„è¯·æ±‚æ–¹å¼
             httpURLConnection.setRequestMethod("POST");
-            // ÉèÖÃÎ¬³Ö³¤Á¬½Ó
+            // è®¾ç½®ç»´æŒé•¿è¿æ¥
             httpURLConnection.setRequestProperty("Connection", "Keep-Alive");
-            // ÉèÖÃÎÄ¼şÀàĞÍ:
+            // è®¾ç½®æ–‡ä»¶ç±»å‹:
             httpURLConnection.setRequestProperty("Content-Type","application/json");
-            // ÉèÖÃÎÄ¼ş×Ö·û¼¯:
+            // è®¾ç½®æ–‡ä»¶å­—ç¬¦é›†:
             httpURLConnection.setRequestProperty("Charset", "UTF-8");          
-            // ¿ªÊ¼Á¬½ÓÇëÇó
+            // å¼€å§‹è¿æ¥è¯·æ±‚
             httpURLConnection.connect();
             OutputStream  out = httpURLConnection.getOutputStream();  
-            // Ğ´ÈëÇëÇóµÄ×Ö·û´®
+            // å†™å…¥è¯·æ±‚çš„å­—ç¬¦ä¸²
             out.write(request.getBytes());
             out.flush();
             out.close();
-         // ÇëÇó·µ»ØµÄ×´Ì¬
+         // è¯·æ±‚è¿”å›çš„çŠ¶æ€
             if (httpURLConnection.getResponseCode() == 200) {
-//                System.out.println("Á¬½Ó³É¹¦");
-                // ÇëÇó·µ»ØµÄÊı¾İ
+//                System.out.println("è¿æ¥æˆåŠŸ");
+                // è¯·æ±‚è¿”å›çš„æ•°æ®
                 BufferedInputStream in  = new BufferedInputStream(httpURLConnection.getInputStream());
                 try {
                     byte[] data1 = new byte[in.available()]; 
                     in.read(data1);
-                    // ×ª³É×Ö·û´®
+                    // è½¬æˆå­—ç¬¦ä¸²
                     response = new String(data1,"UTF-8");
                     return response;
                 } catch (Exception e1) {
@@ -65,7 +65,7 @@ public class HttpRequest {
                     e1.printStackTrace();
                 }
             } else {
-                System.out.println("ÇëÇó³ö´í£¬·µ»Ø×´Ì¬ÖµÎª£º" + httpURLConnection.getResponseCode());
+                System.out.println("è¯·æ±‚å‡ºé”™ï¼Œè¿”å›çŠ¶æ€å€¼ä¸ºï¼š" + httpURLConnection.getResponseCode());
             }
         } catch (Exception e) {
         	e.printStackTrace();
@@ -73,14 +73,14 @@ public class HttpRequest {
         return response;
     }
        
-    //getÇëÇóµÄ·¢ËÍ
+    //getè¯·æ±‚çš„å‘é€
     public static String sendGet(String path,String request){
     	String response = null;
     	
     	return response;
     }
     
-    //¶ÁÈ¡ÓÃÀı²¢ÇëÇó£¬²¢Ğ´Èë½á¹û
+    //è¯»å–ç”¨ä¾‹å¹¶è¯·æ±‚ï¼Œå¹¶å†™å…¥ç»“æœ
     public static void requestAndWriteResult (int row){
     	try {
 			String request = ReadExcel.getRequest(row);

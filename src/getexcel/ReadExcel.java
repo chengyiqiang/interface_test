@@ -1,4 +1,4 @@
-package getexcel;
+ï»¿package getexcel;
 
 
 import jxl.format.UnderlineStyle;
@@ -9,25 +9,25 @@ import jxl.write.WritableFont;
 public class ReadExcel {
 
 	
-	//¶ÁÈ¡µ±Ç°sheetÖĞÖ¸¶¨µ¥Ôª¸ñÄÚÈİ
+	//è¯»å–å½“å‰sheetä¸­æŒ‡å®šå•å…ƒæ ¼å†…å®¹
 	public static String readCell (int column,int row){
 		String content = "";
 		try{
 			content = GetTestExcel.sheet.getCell(column, row).getContents();
 		}catch(Exception e){
 			e.printStackTrace();
-			System.out.println("¶ÁÈ¡µ±Ç°sheetÖĞÖ¸¶¨µ¥Ôª¸ñÄÚÈİÒì³£");
+			System.out.println("è¯»å–å½“å‰sheetä¸­æŒ‡å®šå•å…ƒæ ¼å†…å®¹å¼‚å¸¸");
 		}
 		return content;
 	}
 	
-	//ÉèÖÃµ¥Ôª¸ñ¸ñÊ½
+	//è®¾ç½®å•å…ƒæ ¼æ ¼å¼
 	public static WritableCellFormat setFormat (String color) {
 			WritableFont wf = null;
 			WritableCellFormat wcf = null;
-			//Í¨¹ıcolorÅĞ¶ÏĞ´ÈëµÄ×ÖÌåÑÕÉ«
+			//é€šè¿‡coloråˆ¤æ–­å†™å…¥çš„å­—ä½“é¢œè‰²
 			if (color.equals("RED")) {
-			// ÉèÖÃµ¥Ôª¸ñ¸ñÊ½Îª£º13ºÅ×ÖÌå£¬Ã»ÓĞĞ±Ìå£¬ºìÉ«×ÖÌå
+			// è®¾ç½®å•å…ƒæ ¼æ ¼å¼ä¸ºï¼š13å·å­—ä½“ï¼Œæ²¡æœ‰æ–œä½“ï¼Œçº¢è‰²å­—ä½“
 				wf = new WritableFont(WritableFont.TIMES, 13, WritableFont.NO_BOLD,false, UnderlineStyle.NO_UNDERLINE, jxl.format.Colour.RED);
 				wcf = new WritableCellFormat(wf);
 			} else if (color.equals("BLUE")) {
@@ -40,16 +40,16 @@ public class ReadExcel {
 			return wcf;				
 		}
 		
-	//Ö¸¶¨µ¥Ôª¸ñĞ´ÈëÊı¾İ
+	//æŒ‡å®šå•å…ƒæ ¼å†™å…¥æ•°æ®
 	public static void writeCell (int column,int row, String content, String color){
 		try {
 			GetTestExcel.wSheet.addCell(new Label(column, row, content, setFormat(color)));
 		} catch (Exception e) {
-			System.out.println("Excel±íÌí¼Óµ¥Ôª¸ñÊ§°Ü£¡");
+			System.out.println("Excelè¡¨æ·»åŠ å•å…ƒæ ¼å¤±è´¥ï¼");
 		}		
 	}
 	
-	//¶ÁÈ¡Â·¾¶
+	//è¯»å–è·¯å¾„
 	public static String getUrl (int row){
 		String url = "";
 		try {
@@ -59,39 +59,39 @@ public class ReadExcel {
 			url = "http://" + host + ":" + port + trace;
 			return url;
 		} catch (Exception e) {
-			System.out.println("¶ÁÈ¡½Ó¿ÚÂ·¾¶´íÎó");
+			System.out.println("è¯»å–æ¥å£è·¯å¾„é”™è¯¯");
 			e.printStackTrace();
 		}
 		return url;
 	}
 	
-	//¶ÁÈ¡ÇëÇó²ÎÊı
+	//è¯»å–è¯·æ±‚å‚æ•°
 	public static String getRequest (int row){
 			String request = "";
 			try {
 				request = readCell(5, row);
 				return request;
 			} catch (Exception e) {
-				System.out.println("¶ÁÈ¡ÓÃÀı´íÎó");
+				System.out.println("è¯»å–ç”¨ä¾‹é”™è¯¯");
 				e.printStackTrace();
 			}
 			return request;
 		}
 	
-	//¶ÁÈ¡¶ÏÑÔ
+	//è¯»å–æ–­è¨€
 	public static String getAffirm (int row){
 		String affirm = "";
 		try {
 			affirm = readCell(7, row);
 			return affirm;
 		} catch (Exception e) {
-			System.out.println("¶ÁÈ¡ÓÃÀı´íÎó");
+			System.out.println("è¯»å–ç”¨ä¾‹é”™è¯¯");
 			e.printStackTrace();
 		}
 		return affirm;
 	}
 	
-	//Ğ´Èë½á¹û
+	//å†™å…¥ç»“æœ
 	public static void writeResult (int row,String respone,boolean compareResult){
 		try {
 			if (compareResult){
@@ -103,7 +103,7 @@ public class ReadExcel {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ÏòexcelĞ´ÈëÊı¾İ³ö´í");
+			System.out.println("å‘excelå†™å…¥æ•°æ®å‡ºé”™");
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package DBset;
+ï»¿package DBset;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,25 +14,25 @@ import org.omg.CORBA.PUBLIC_MEMBER;
 public class DBUtil {
 	
 	public static Connection connection;
-	//Á¬½ÓÊı¾İ¿â
+	//è¿æ¥æ•°æ®åº“
 	public static void setDBConnection(){
 		try {
 			//String path,String username,String password
-			//¼ÓÔØÇı¶¯³ÌĞò
+			//åŠ è½½é©±åŠ¨ç¨‹åº
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			//»ñÈ¡Á¬½Ó
+			//è·å–è¿æ¥
 //			connection = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;DataBaseName=test", "cs_cyq", "cyq900820");
 			connection = DriverManager.getConnection("jdbc:sqlserver://192.168.50.30:6666;DataBaseName=nxa_ytc", "nxa_yf", "nxa_yf$@42");
 			
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥");
 		}			
 	} 
 	
-	//Ö´ĞĞ²éÑ¯sql ²¢·µ»Ø½á¹û
+	//æ‰§è¡ŒæŸ¥è¯¢sql å¹¶è¿”å›ç»“æœ
 	public static ResultSet executesSelectSql(String sql){
 		ResultSet result = null;
 		try {
@@ -40,12 +40,12 @@ public class DBUtil {
 			result = pStatement.executeQuery();			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("selectÀàĞÍÓï¾äÖ´ĞĞÒì³£");
+			System.out.println("selectç±»å‹è¯­å¥æ‰§è¡Œå¼‚å¸¸");
 		}
 		return result;		
 	}
 	
-	//»ñÈ¡Ö¸¶¨²éÑ¯sql½á¹ûµÄÖ¸¶¨ÁĞÃûµÄÖµ
+	//è·å–æŒ‡å®šæŸ¥è¯¢sqlç»“æœçš„æŒ‡å®šåˆ—åçš„å€¼
 	public static List<String> getSelectResult(String sql, String columnName){
 		List<String> results = new ArrayList<String>();
 		try {
@@ -56,12 +56,12 @@ public class DBUtil {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("»ñÈ¡²éÑ¯½á¹ûÖ¸¶¨ÁĞÄÚÈİÒì³£");
+			System.out.println("è·å–æŸ¥è¯¢ç»“æœæŒ‡å®šåˆ—å†…å®¹å¼‚å¸¸");
 		}
 		return results;
 	}
 	
-	//Ö´ĞĞ INSERT¡¢UPDATE »ò DELETE Óï¾ä£»»òÕßÊÇÎŞ·µ»ØÄÚÈİµÄ SQL Óï¾ä£¬±ÈÈç DDL Óï¾ä
+	//æ‰§è¡Œ INSERTã€UPDATE æˆ– DELETE è¯­å¥ï¼›æˆ–è€…æ˜¯æ— è¿”å›å†…å®¹çš„ SQL è¯­å¥ï¼Œæ¯”å¦‚ DDL è¯­å¥
 	public static boolean executeUpdateSql (String sql){
 		boolean result = false;
 		try {
@@ -70,7 +70,7 @@ public class DBUtil {
 			result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("updateÀàĞÍÓï¾äÖ´ĞĞÒì³£");
+			System.out.println("updateç±»å‹è¯­å¥æ‰§è¡Œå¼‚å¸¸");
 		}
 		return result;
 	}

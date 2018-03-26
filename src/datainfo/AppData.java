@@ -1,4 +1,4 @@
-package datainfo;
+﻿package datainfo;
 
 public class AppData {
 
